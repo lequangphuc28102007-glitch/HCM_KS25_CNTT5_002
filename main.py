@@ -19,11 +19,14 @@ def calculate_inventory(item_stock, item_price):
     return item_stock * item_price
 
 def display_inventory():
+    if len(inventory) == 0:
+        print("danh sách rỗng!")
+        return
 
     print("=== DANH SÁCH KHO HÀNG ===")
 
 
-    print(f"{"ID":<20}{"tên sản phẩm":<20}{"đơn giá":<20}{"tồn kho":<20}{"tồn kho tối thiểu":<20}{"tổng giá tiền kho hàng":<20}{"trạng thái":<20}")
+    print(f"{"ID":<10}{"tên sản phẩm":<20}{"đơn giá":<20}{"tồn kho":<20}{"tồn kho tối thiểu":<20}{"tổng giá tiền kho hàng":<20}{"trạng thái":<20}")
     for item in inventory:
         print(
             f"{item['id']:<10} | {item['name']:<20} | {item['price']:<20} | {item['stock']:<20} | {item['at_least_stock']:<20} | {item['total_stock']:<20} | {item['status']:<20}")
